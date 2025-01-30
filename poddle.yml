@@ -1,9 +1,9 @@
 poddle:
   version: "1.0"
-  project: instagram
-  appName: users-management-service
+  project: streamflow
+  appName: streaming-service
   type: WEB_SERVICE
-  health: /health
+  health: /api/v1/health
   port: 8080
   env:
     qa:
@@ -11,7 +11,7 @@ poddle:
       entryPoint: index.js
       specs:
         compute:
-          cpu: 2 
+          cpu: 2
           memory: 2
           storage: 30
         database:

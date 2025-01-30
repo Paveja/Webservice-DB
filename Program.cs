@@ -22,7 +22,7 @@ var dbPort = builder.Configuration["DATABASE_PORT"] ?? "3306"; // Default to 330
 var dbName = builder.Configuration["DATABASE_NAME"]
     ?? throw new InvalidOperationException("Environment variable 'DATABASE_NAME' is not set.");
 var dbUser = builder.Configuration["DATABASE_USERNAME"]
-    ?? throw new InvalidOperationException("Environment variable 'DATABASE_USER' is not set.");
+    ?? throw new InvalidOperationException("Environment variable 'DATABASE_USERNAME' is not set.");
 var dbPassword = builder.Configuration["DATABASE_PASSWORD"]
     ?? throw new InvalidOperationException("Environment variable 'DATABASE_PASSWORD' is not set.");
 

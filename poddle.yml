@@ -26,5 +26,5 @@ poddle:
         DATABASE_PORT: "#{dbPort}"
         DATABASE_USERNAME: "#{dbUsername}"
         DATABASE_PASSWORD: "#{dbPassword}"
-        DATABASE_NAME: "#{dbName}"
-        THIRD_PARTY_URL: "https://testtt.requestcatcher.com/"
+        DATABASE_NAME: users
+        THIRD_PARTY_URL: https://testtt.requestcatcher.com/

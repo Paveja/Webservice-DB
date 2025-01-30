@@ -1,0 +1,35 @@
+poddle:
+  version: "1.0"
+  project: "instagram"
+  appName: "payment-service"
+  type: WEB_SERVICE
+  health: /health
+  port: 3000
+  env:
+    qa:
+      branch: main
+      entryPoint: "Program.cs"
+      domain: "payment-service-qa.poddleops.com"
+      specs:
+        compute:
+          cpu: 2
+          memory: 2
+          storage: 30
+          autoScaling:
+            replica:
+              min: 1
+              max: 3
+        database:
+          cpu: 2
+          memory: 1
+          storage: 50
+          engine: "mysql"
+          version: "8.0.37"
+      variables:
+        BASE_URL: "/api/v1"
+        DATABASE_URL: "#{dbUrl}"
+        DATABASE_PORT: "#{dbPort}"
+        DATABASE_USERNAME: "#{dbUsername}"
+        DATABASE_PASSWORD: "#{dbPassword}"
+        DATABASE_NAME: "#{dbName}"
+        THIRD_PARTY_URL: "https://testtt.requestcatcher.com/"

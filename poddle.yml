@@ -6,8 +6,7 @@ poddle:
   health: /health
   port: 8080
   env:
-    qa:
-      branch: qa
+    preview:
       entryPoint: "Program.cs"
       specs:
         compute:

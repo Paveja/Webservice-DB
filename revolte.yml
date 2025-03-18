@@ -4,7 +4,7 @@ revolte:
   appName: message-service
   env:
     qa:     
-      branch: dev2
+      branch: qa
       services:
         rid_1:
           name: "userService"

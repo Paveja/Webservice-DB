@@ -38,7 +38,7 @@ namespace dotnet06.Controllers
                 }
 
                 // Call third-party API
-                var content = new StringContent("Hello World! testing third party", Encoding.UTF8, "text/plain");
+                var content = new StringContent("Hello World! We are Testing third party", Encoding.UTF8, "text/plain");
                 var response = await _httpClient.PostAsync(thirdPartyUrl, content);
                 response.EnsureSuccessStatusCode();
                 var thirdPartyResponse = await response.Content.ReadAsStringAsync();

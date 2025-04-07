@@ -74,8 +74,7 @@ app.MapHealthChecks("/health", new HealthCheckOptions
        context.Response.ContentType = "application/json";
        var response = new
        {
-           success = true,
-           checked = 'yes',
+           success = true,   
            status = report.Status.ToString()
        };
        await context.Response.WriteAsJsonAsync(response);

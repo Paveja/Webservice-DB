@@ -9,7 +9,7 @@ revolte:
         rid_1:
           name: "userService"
           type: "WEB_SERVICE"
-          entryPoint: "Program.cs"
+          entryPoint: "Program.cs"   
           specifications:
             cpu: 2
             memory: 2

@@ -1,39 +1,62 @@
 revolte:
   version: "1.0"
-  project: optum
-  appName: message-service
+  project: "optum"
+  appName: "message-service"
   env:
-    qa:     
-      branch: qa
+    qa:
+      branch: "qa"
       services:
         rid_1:
-          name: "userService"
+          name: "web-service"
           type: "WEB_SERVICE"
-          entryPoint: "Program.cs"   
+          entryPoint: "index.js"
           specifications:
-            cpu: 2
-            memory: 2
-            storage: 30
-            autoScaling:
-              replica:
-                min: 1
-                max: 2
+            cpu: 4
+            memory: 32
+            storage: 300
           properties:
             health: "/health"
             port: 8080
             variables:
               BASE_URL: "/api/v1"
-              DATABASE_URL: "#{userDatabase.dbUrl}"
-              DATABASE_PORT: "#{userDatabase.dbPort}"  
-              DATABASE_USERNAME: "#{userDatabase.dbUsername}"
-              DATABASE_PASSWORD: "#{userDatabase.dbPassword}"
-              DATABASE_NAME: "#{userDatabase.dbName}"
-              THIRD_PARTY_URL: "https://testtt.requestcatcher.com/"
+              DATABASE_URL: "#{db.dbUrl}"
+              DATABASE_PORT: "#{db.dbPort}"
+              DATABASE_USERNAME: "#{db.dbUsername}"
+              DATABASE_PASSWORD: "#{db.dbPassword}"
+              DATABASE_NAME: "#{dbName}"
         rid_2:
-          name: "userDatabase"
+          name: "db"
           type: "DATABASE"
           specifications:
-            cpu: 2   
-            memory: 1  
+            cpu: 2
+            memory: 4
             storage: 50
-            engine: "postgres"
+            engine: postgres
+    preview:
+      services:
+        rid_1:
+          name: "web-service"
+          type: "WEB_SERVICE"
+          entryPoint: "index.js"
+          specifications:
+            cpu: 2
+            memory: 8
+            storage: 30
+          properties:
+            health: "/health"
+            port: 8080
+            variables:
+              BASE_URL: "/api/v1"
+              DATABASE_URL: "#{db.dbUrl}"
+              DATABASE_PORT: "#{db.dbPort}"
+              DATABASE_USERNAME: "#{db.dbUsername}"
+              DATABASE_PASSWORD: "#{db.dbPassword}"
+              DATABASE_NAME: "#{dbName}"
+        rid_2:
+          name: "db"
+          type: "DATABASE"
+          specifications:
+            cpu: 2
+            memory: 4
+            storage: 50
+            engine: postgres

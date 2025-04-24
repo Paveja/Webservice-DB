@@ -19,11 +19,12 @@ revolte:
             port: 8080
             variables:
               BASE_URL: "/api/v1"
-              DATABASE_URL: "#{db.dbUrl}"
-              DATABASE_PORT: "#{db.dbPort}"
-              DATABASE_USERNAME: "#{db.dbUsername}"
-              DATABASE_PASSWORD: "#{db.dbPassword}"
-              DATABASE_NAME: "#{dbName}"
+              DATABASE_URL: "#{userDatabase.dbUrl}"
+              DATABASE_PORT: "#{userDatabase.dbPort}"
+              DATABASE_USERNAME: "#{userDatabase.dbUsername}"
+              DATABASE_PASSWORD: "#{userDatabase.dbPassword}"
+              DATABASE_NAME: "#{userDatabase.dbName}"
+              THIRD_PARTY_URL: "https://testtt.requestcatcher.com/"
         rid_2:
           name: "db"
           type: "DATABASE"

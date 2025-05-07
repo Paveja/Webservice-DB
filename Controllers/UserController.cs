@@ -28,7 +28,7 @@ namespace dotnet06.Controllers
             {
                 // Get the THIRD_PARTY_URL environment variable
                 var thirdPartyUrl = _configuration["THIRD_PARTY_URL"];
-                if (string.IsNullEmpty(thirdPartyUrl))
+                if (string.IsNullOrEmpty(thirdPartyUrl))
                 {
                     return StatusCode(500, new
                     {

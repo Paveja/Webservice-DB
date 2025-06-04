@@ -19,7 +19,7 @@ revolte:
                 min: 1
                 max: 2
           properties:
-            health: "/health"
+            health: "/healths"
             port: 8080
             variables:
               BASE_URL: "/api/v1"

@@ -34,6 +34,6 @@ revolte:
           type: "DATABASE"
           specifications:
             cpu: 2
-            memory: 1
+            memory: 4
             storage: 50
             engine: "postgres"

@@ -29,21 +29,6 @@ revolte:
               DATABASE_PASSWORD: "#{userDatabase.dbPassword}"
               DATABASE_NAME: "#{userDatabase.dbName}"
               THIRD_PARTY_URL: "https://testtt.requestcatcher.com/"
-          insights:
-              swap:
-                - swap_used
-                - swap_free
-              cpu:
-                - cpu_time_idle
-                - cpu_time_user
-                - cpu_time_system
-              mem:
-                - mem_total
-                - mem_free
-              disk:
-                - disk_used
-                - disk_total
-                - disk_free
         rid_2:
           name: "userDatabase"
           type: "DATABASE"

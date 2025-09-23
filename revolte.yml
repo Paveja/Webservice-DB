@@ -1,7 +1,7 @@
 revolte:
   version: "1.0"
-  project: optum
-  appName: message-service
+  project: Star
+  appName: Nightingale
   env:
     qa:     
       branch: qa
@@ -37,3 +37,10 @@ revolte:
             memory: 4
             storage: 50
             engine: "postgres"
+        rid_3:
+          type: STORAGE_BUCKET
+          name: storage_bucket1_service
+          configurations:
+              bucketName: revolte-ramco-code-red1
+              versioningStatus: enabled
+              public: false

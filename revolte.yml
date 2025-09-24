@@ -41,14 +41,6 @@ revolte:
           type: STORAGE_BUCKET
           name: storage_bucket1_service
           configurations:
-              bucketName: demo-bucket-red1
+              bucketName: revolte-codestyle-rules
               versioningStatus: enabled
               public: false
-        rid_4:
-          type: STORAGE_BUCKET
-          name: storage_bucket1_service
-          configurations:
-              bucketName: demo-bucket-red1
-              versioningStatus: enabled
-              public: false
-      

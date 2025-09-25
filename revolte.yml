@@ -2,8 +2,16 @@ revolte:
   version: "1.0"
   project: Star
   appName: Nightingale
+  config:
+    codeReview:
+      suggestFixes: true
+      summarize: true
+      commentStyle: "Balanced"
+      excludes:
+        - /*json
+        - /*exp
   env:
-    qa:     
+    qa:
       branch: qa
       services:
         rid_1:
@@ -41,6 +49,6 @@ revolte:
           type: STORAGE_BUCKET
           name: storage_bucket1_service
           configurations:
-              bucketName: revolte-codestyle-rules
-              versioningStatus: enabled
-              public: false
+            bucketName: revolte-codestyle-rules
+            versioningStatus: enabled
+            public: false

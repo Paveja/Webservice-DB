@@ -59,6 +59,8 @@ revolte:
                     - POST
                   origins:
                     - "*"
+                    - "&"
                   allowedHeaders:
                     - "Content-Type"
+                    - "Content-Type2"
                   maxAgeSeconds: 600

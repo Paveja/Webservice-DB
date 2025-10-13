@@ -1,7 +1,7 @@
 revolte:
   version: "1.0"
-  project: Star
-  appName: Nightingale
+  project: optum
+  appName: message-service
   config:
     codeReview:
       suggestFixes: true

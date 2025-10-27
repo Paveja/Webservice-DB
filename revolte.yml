@@ -1,39 +1,125 @@
 revolte:
-  version: "1.0"
+  version: '1.0'
   project: optum
   appName: message-service
   env:
+    staging:
+      branch: dev
+      services:
+        rid_1:
+          type: WEB_SERVICE
+          name: web_service
+          entryPoint: index.js
+          properties:
+            health: /health
+            port: 8080
+            variables:
+              BASE_URL: /api/v1
+              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+        rid_2:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
     qa:
       branch: qa
       services:
         rid_1:
-          name: "userService"
-          type: "WEB_SERVICE"
-          entryPoint: "Program.cs"
+          type: WEB_SERVICE
+          name: userService
+          entryPoint: Program.cs
+          properties:
+            health: /health
+            port: 8080
+            variables:
+              BASE_URL: /api/v1
+              DATABASE_URL: '#{userDatabase.dbUrl}'
+              DATABASE_PORT: '#{userDatabase.dbPort}'
+              DATABASE_USERNAME: '#{userDatabase.dbUsername}'
+              DATABASE_PASSWORD: '#{userDatabase.dbPassword}'
+              DATABASE_NAME: '#{userDatabase.dbName}'
+              THIRD_PARTY_URL: https://testtt.requestcatcher.com/
           specifications:
             cpu: 2
             memory: 2
             storage: 30
-            autoScaling:
-              replica:
-                min: 1
-                max: 2
-          properties:
-            health: "/health"
-            port: 8080
-            variables:
-              BASE_URL: "/api/v1"
-              DATABASE_URL: "#{userDatabase.dbUrl}"
-              DATABASE_PORT: "#{userDatabase.dbPort}"
-              DATABASE_USERNAME: "#{userDatabase.dbUsername}"
-              DATABASE_PASSWORD: "#{userDatabase.dbPassword}"
-              DATABASE_NAME: "#{userDatabase.dbName}"
-              THIRD_PARTY_URL: "https://testtt.requestcatcher.com/"
         rid_2:
-          name: "userDatabase"
-          type: "DATABASE"
+          type: DATABASE
+          name: userDatabase
           specifications:
             cpu: 2
             memory: 4
             storage: 50
-            engine: "postgres"
+            engine: postgres
+    production:
+      branch: apple
+      services:
+        rid_1:
+          type: WEB_SERVICE
+          name: web_service
+          entryPoint: index.js
+          properties:
+            health: /health
+            port: 8080
+            variables:
+              BASE_URL: /api/v1
+              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            autoScaling:
+              replica:
+                min: 1
+                max: 1
+        rid_2:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
+    preview:
+      services:
+        rid_1:
+          type: WEB_SERVICE
+          name: web_service
+          entryPoint: index.js
+          properties:
+            health: /health
+            port: 8080
+            variables:
+              BASE_URL: /api/v1
+              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+        rid_2:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres

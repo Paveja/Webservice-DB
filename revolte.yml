@@ -2,14 +2,6 @@ revolte:
   version: "1.0"
   project: optum
   appName: message-service
-  config:
-    codeReview:
-      suggestFixes: true
-      summarize: true
-      commentStyle: "Balanced"
-      excludes:
-        - /*json
-        - /*exp
   env:
     qa:
       branch: qa

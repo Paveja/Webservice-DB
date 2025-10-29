@@ -3,6 +3,36 @@ revolte:
   project: optum
   appName: message-service
   env:
+    preview:
+      branch: qa
+      services:
+        rid_1:
+          type: WEB_SERVICE
+          name: previewUserService
+          entryPoint: Program.cs
+          properties:
+            health: /health
+            port: 8080
+            variables:
+              BASE_URL: /api/v1
+              DATABASE_URL: '#{previewUserDatabase.dbUrl}'
+              DATABASE_PORT: '#{previewUserDatabase.dbPort}'
+              DATABASE_USERNAME: '#{previewUserDatabase.dbUsername}'
+              DATABASE_PASSWORD: '#{previewUserDatabase.dbPassword}'
+              DATABASE_NAME: '#{previewUserDatabase.dbName}'
+              THIRD_PARTY_URL: https://testtt.requestcatcher.com/
+          specifications:
+            cpu: 2
+            memory: 2
+            storage: 30
+        rid_2:
+          type: DATABASE
+          name: previewUserDatabase
+          specifications:
+            cpu: 2
+            memory: 4
+            storage: 50
+            engine: postgres
     qa:
       branch: qa
       services:

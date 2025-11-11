@@ -13,6 +13,9 @@ revolte:
           properties:
             health: /health
             port: 8080
+            route:
+              path: /user-vault
+              stripBasePath: false
             variables:
               BASE_URL: /api/v1
               DATABASE_URL: "#{previewUserDatabase.dbUrl}"

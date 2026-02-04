@@ -1,6 +1,6 @@
 revolte:
   version: "1.0"
-  project: Strike
+  project: light
   appName: message-service
   env:
     qa:

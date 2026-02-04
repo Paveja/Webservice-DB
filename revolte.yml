@@ -11,7 +11,7 @@ revolte:
           name: userService
           entryPoint: Program.cs
           properties:
-            loadBalancerMode: "shared"
+            loadBalancerMode: "dedicated"
             health: /health
             port: 8080
             variables:

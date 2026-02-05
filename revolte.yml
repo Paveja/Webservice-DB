@@ -3,7 +3,7 @@ revolte:
   project: light
   appName: message-service
   env:
-    staging:
+    qa:
       branch: qa
       services:
         rid_1:

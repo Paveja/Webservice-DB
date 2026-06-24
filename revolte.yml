@@ -44,7 +44,7 @@ revolte:
             cpu: 2
             memory: 1
             storage: 30
-            engine: postgres
+            engine: mysql
     staging:
       codeReview: true
       testSuite: true

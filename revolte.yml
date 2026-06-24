@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: Test Proj 2
-  appName: Dotnet 1
+  project: New Project
+  appName: DB app
   config:
     codeReview:
       summarize: true
@@ -13,10 +13,10 @@ revolte:
     developerWorkflow:
       enabled: true
   env:
-    staging:
-      branch: main
+    qa:
       codeReview: true
       testSuite: true
+      branch: main
       services:
         rid_1:
           type: WEB_SERVICE
@@ -45,10 +45,10 @@ revolte:
             memory: 1
             storage: 30
             engine: postgres
-    qa:
-      branch: main
+    staging:
       codeReview: true
       testSuite: true
+      branch: main
       services:
         rid_1:
           type: WEB_SERVICE
@@ -78,9 +78,9 @@ revolte:
             storage: 30
             engine: postgres
     production:
-      branch: main
       codeReview: true
       testSuite: true
+      branch: main
       services:
         rid_1:
           type: WEB_SERVICE

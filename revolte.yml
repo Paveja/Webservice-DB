@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: New Project
-  appName: DB app
+  project: new project
+  appName: BE application
   config:
     codeReview:
       summarize: true
@@ -13,42 +13,10 @@ revolte:
     developerWorkflow:
       enabled: true
   env:
-    qa:
-      codeReview: true
-      testSuite: true
-      branch: main
-      services:
-        rid_1:
-          type: WEB_SERVICE
-          name: web_service
-          entryPoint: index.js
-          properties:
-            health: /health
-            port: 8080
-            loadBalancerMode: dedicated
-            variables:
-              BASE_URL: /api/v1
-              DATABASE_URL: '#{db.dbUrl}'
-              DATABASE_PORT: '#{db.dbPort}'
-              DATABASE_USERNAME: '#{db.dbUsername}'
-              DATABASE_PASSWORD: '#{db.dbPassword}'
-              DATABASE_NAME: '#{db.dbName}'
-          specifications:
-            cpu: 2
-            memory: 1
-            storage: 30
-        rid_2:
-          type: DATABASE
-          name: db
-          specifications:
-            cpu: 2
-            memory: 1
-            storage: 30
-            engine: mysql
     staging:
+      branch: main
       codeReview: true
       testSuite: true
-      branch: main
       services:
         rid_1:
           type: WEB_SERVICE
@@ -77,10 +45,56 @@ revolte:
             memory: 1
             storage: 30
             engine: postgres
-    production:
+        rid_3:
+          type: STORAGE_BUCKET
+          name: storage_bucket_service
+          configurations:
+            bucketName: stagbucket
+            versioningStatus: enabled
+            public: false
+    qa:
+      branch: main
       codeReview: true
       testSuite: true
+      services:
+        rid_1:
+          type: WEB_SERVICE
+          name: web_service
+          entryPoint: index.js
+          properties:
+            health: /health
+            port: 8080
+            loadBalancerMode: dedicated
+            variables:
+              BASE_URL: /api/v1
+              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+        rid_2:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: mysql
+        rid_3:
+          type: STORAGE_BUCKET
+          name: storage_bucket_service
+          configurations:
+            bucketName: qabucket
+            versioningStatus: enabled
+            public: false
+    production:
       branch: main
+      codeReview: true
+      testSuite: true
       services:
         rid_1:
           type: WEB_SERVICE
@@ -121,6 +135,13 @@ revolte:
             memory: 1
             storage: 30
             engine: postgres
+        rid_3:
+          type: STORAGE_BUCKET
+          name: storage_bucket_service
+          configurations:
+            bucketName: prodbucket
+            versioningStatus: enabled
+            public: false
     preview:
       codeReview: true
       testSuite: true
@@ -152,3 +173,10 @@ revolte:
             memory: 1
             storage: 30
             engine: postgres
+        rid_3:
+          type: STORAGE_BUCKET
+          name: storage_bucket_service
+          configurations:
+            bucketName: prevbucket
+            versioningStatus: enabled
+            public: false

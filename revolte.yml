@@ -1,22 +1,15 @@
 revolte:
   version: '1.0'
-  project: new project
-  appName: BE application
-  config:
-    codeReview:
-      summarize: true
-      suggestFixes: true
-      commentStyle: Balanced
-    testSuite:
-      command: npm run test
+  project: New Project
+  appName: Be-test
   workflow:
     developerWorkflow:
       enabled: true
   env:
     staging:
-      branch: main
       codeReview: true
       testSuite: true
+      branch: main
       services:
         rid_1:
           type: WEB_SERVICE
@@ -49,13 +42,13 @@ revolte:
           type: STORAGE_BUCKET
           name: storage_bucket_service
           configurations:
-            bucketName: pavejastagfiles
+            bucketName: shakstagfiles
             versioningStatus: enabled
             public: false
     qa:
-      branch: main
       codeReview: true
       testSuite: true
+      branch: main
       services:
         rid_1:
           type: WEB_SERVICE
@@ -92,9 +85,9 @@ revolte:
             versioningStatus: enabled
             public: false
     production:
-      branch: main
       codeReview: true
       testSuite: true
+      branch: main
       services:
         rid_1:
           type: WEB_SERVICE

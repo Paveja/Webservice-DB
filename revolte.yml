@@ -49,7 +49,7 @@ revolte:
           type: STORAGE_BUCKET
           name: storage_bucket_service
           configurations:
-            bucketName: pavestagfiles
+            bucketName: pavejastagfiles
             versioningStatus: enabled
             public: false
     qa:

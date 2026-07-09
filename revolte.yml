@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: New Project
-  appName: Be-test
+  project: testproj
+  appName: betest
   workflow:
     developerWorkflow:
       enabled: true
@@ -42,7 +42,7 @@ revolte:
           type: STORAGE_BUCKET
           name: storage_bucket_service
           configurations:
-            bucketName: shaksagfiles
+            bucketName: vijaysagfiles
             versioningStatus: enabled
             public: false
     qa:
@@ -85,8 +85,6 @@ revolte:
             versioningStatus: enabled
             public: false
     production:
-      codeReview: true
-      testSuite: true
       branch: main
       services:
         rid_1:
@@ -136,8 +134,6 @@ revolte:
             versioningStatus: enabled
             public: false
     preview:
-      codeReview: true
-      testSuite: true
       services:
         rid_1:
           type: WEB_SERVICE

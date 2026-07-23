@@ -36,13 +36,6 @@ revolte:
             memory: 1
             storage: 30
             engine: postgres
-        rid_3:
-          type: STORAGE_BUCKET
-          name: storage_bucket_service
-          configurations:
-            bucketName: mitsagfiles
-            versioningStatus: enabled
-            public: false
     qa:
       branch: main
       services:
@@ -72,14 +65,7 @@ revolte:
             cpu: 2
             memory: 1
             storage: 30
-            engine: mysql
-        rid_3:
-          type: STORAGE_BUCKET
-          name: storage_bucket_service
-          configurations:
-            bucketName: qabucket
-            versioningStatus: enabled
-            public: false
+            engine: postgres
     production:
       branch: main
       services:
@@ -122,13 +108,6 @@ revolte:
             memory: 1
             storage: 30
             engine: postgres
-        rid_3:
-          type: STORAGE_BUCKET
-          name: storage_bucket_service
-          configurations:
-            bucketName: prodbucket
-            versioningStatus: enabled
-            public: false
     preview:
       services:
         rid_1:
@@ -158,10 +137,3 @@ revolte:
             memory: 1
             storage: 30
             engine: postgres
-        rid_3:
-          type: STORAGE_BUCKET
-          name: storage_bucket_service
-          configurations:
-            bucketName: prevbucket
-            versioningStatus: enabled
-            public: false
